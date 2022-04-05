@@ -20,4 +20,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="BDDvsTDD">
+      <HintPath>..\BDDvsTDD\obj\Debug\net6.0-windows\BDDvsTDD.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
