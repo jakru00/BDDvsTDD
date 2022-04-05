@@ -7,7 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDDvsTDD", "BDDvsTDD\BDDvsT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDDvsTDD.Specs", "BDDvsTDD.Specs\BDDvsTDD.Specs.csproj", "{88EB834B-707F-4397-BD7A-4913A41D2BF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDDvsTDD.Unit.Specs", "BDDvsTDD.Unit.Specs\BDDvsTDD.Unit.Specs.csproj", "{1735789E-22D1-442F-9FE2-FCD77380E350}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDDvsTDD.Unit.Specs", "BDDvsTDD.Unit.Specs\BDDvsTDD.Unit.Specs.csproj", "{1735789E-22D1-442F-9FE2-FCD77380E350}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B15B5F04-71EE-40EF-B987-A6BC1F2ADC0E} = {B15B5F04-71EE-40EF-B987-A6BC1F2ADC0E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
