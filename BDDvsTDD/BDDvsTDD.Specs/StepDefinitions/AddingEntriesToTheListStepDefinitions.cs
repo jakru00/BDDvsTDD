@@ -1,21 +1,44 @@
-using System;
-using TechTalk.SpecFlow;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Windows;
 
 namespace BDDvsTDD.Specs.StepDefinitions
 {
     [Binding]
     public class AddingEntriesToTheListStepDefinitions
     {
+        protected static WindowsDriver<WindowsElement> session;
+
+        [BeforeTestRun]
+        public static void SetupTest()
+        {
+            if (session == null)
+            {
+                var appiumOptions = new AppiumOptions();
+                appiumOptions.AddAdditionalCapability("app", WinAppConfig.WpfAppId);
+                appiumOptions.AddAdditionalCapability("deviceName", "WindowsPC");
+                session = new WindowsDriver<WindowsElement>(new Uri(WinAppConfig.WindowsApplicationDriverUrl), appiumOptions);
+            }
+        }
+
+        ProductListModel model = new ProductListModel();
+        string nameMem;
+        int amountMem;
+        float priceMem;
+
         [Given(@"there is at least one entry")]
         public void GivenThereIsAtLeastOneEntry()
         {
-            throw new PendingStepException();
+            if (model.getEntries().Length < 1)
+            {
+                model.addEntry("Tomate", 1.5f, 10);
+            }
+            Assert.True(model.getEntries().Length >= 1);
         }
 
         [When(@"the user starts the app")]
         public void WhenTheUserStartsTheApp()
         {
-            throw new PendingStepException();
+            Assert.True(true);
         }
 
         [Then(@"all entries shall be displayed")]
@@ -25,21 +48,21 @@ namespace BDDvsTDD.Specs.StepDefinitions
         }
 
         [Given(@"the product name is (.*)")]
-        public void GivenTheProductNameIsTomate(string p0)
+        public void GivenTheProductNameIsTomate(string name)
         {
-            throw new PendingStepException();
+            nameMem = name;
         }
 
         [Given(@"the amount is (.*)")]
-        public void GivenTheAmountIs(int p0)
+        public void GivenTheAmountIs(int amount)
         {
-            throw new PendingStepException();
+            amountMem = amount;
         }
 
         [Given(@"the price is (.*)")]
-        public void GivenThePriceIs(Decimal p0)
+        public void GivenThePriceIs(float price)
         {
-            throw new PendingStepException();
+            priceMem = price;
         }
 
         [When(@"the user adds the entry")]
