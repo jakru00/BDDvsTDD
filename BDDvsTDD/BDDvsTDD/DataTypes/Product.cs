@@ -14,6 +14,16 @@ namespace BDDvsTDD
 
         public Product(string name, float price, int amount)
         {
+            if (name.Trim().Length == 0)
+            {
+                throw new EmptyNameException();
+            } else if (price < 0)
+            {
+                throw new NegativePriceException();
+            } else if (amount < 0)
+            {
+                throw new NegativeAmountException();
+            }
             this.price = price;
             this.name = name;
             this.amount = amount;
