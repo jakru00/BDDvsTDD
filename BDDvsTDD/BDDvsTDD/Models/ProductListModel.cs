@@ -13,6 +13,13 @@ namespace BDDvsTDD
         public Product[] getEntries() { return entries.ToArray(); }
         public void addEntry(string name, float price, int amount) 
         {
+            foreach (Product product in entries)
+            {
+                if (product.name == name)
+                {
+                    return;
+                }
+            }
             entries.Add(new Product(name, price, amount));
         }
         public void removeEntry(string name) { }
