@@ -1,9 +1,8 @@
 using Xunit;
-using BDDvsTDD;
 
-namespace BDDvsTDD.Unit.Specs
+namespace BDDvsTDD.Unit.Specs.ProductListModelTests
 {
-    public class ProductListModelTests
+    public class AddProdutTests
     {
         private readonly ProductListModel listObject = new();
 
