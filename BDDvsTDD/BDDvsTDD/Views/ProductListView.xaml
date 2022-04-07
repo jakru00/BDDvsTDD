@@ -39,7 +39,7 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="50"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Grid>
+                    <Grid x:Name="TestGrid">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -52,6 +52,9 @@
                             <RowDefinition Height="100"></RowDefinition>
                             <RowDefinition Height="100"></RowDefinition>
                         </Grid.RowDefinitions>
+
+                        <TextBlock>TestTestTest</TextBlock>
+                        <TextBlock Grid.Column="1">20</TextBlock>
                     </Grid>
                 </Grid>
             </ScrollViewer>
@@ -73,7 +76,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Content="Hinzufügen"
+            <Button Content="Hinzufügen" x:Name="addProductButton"
                     HorizontalAlignment="Left" Click="btn1_Click"
                     VerticalAlignment="Center" Margin="10"/>
             <Button Grid.Column="1" x:Name="btn2" Content="Beenden"
