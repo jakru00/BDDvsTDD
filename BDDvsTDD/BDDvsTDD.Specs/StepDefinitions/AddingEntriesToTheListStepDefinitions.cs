@@ -31,34 +31,7 @@ namespace BDDvsTDD.Specs.StepDefinitions
             session?.Dispose();
         }
 
-        [Given(@"there is at least one entry")]
-        public void GivenThereIsAtLeastOneEntry()
-        {
-            if (model.getEntries().Length < 1)
-            {
-                model.addEntry("Tomate", 1.5f, 10);
-            }
-            Assert.True(model.getEntries().Length >= 1);
-        }
-
-        [When(@"the user starts the app")]
-        public void WhenTheUserStartsTheApp()
-        {
-            Assert.True(true);
-        }
-
-        [Then(@"all entries shall be displayed")]
-        public void ThenAllEntriesShallBeDisplayed()
-        {
-            Product[] allProducts = model.getEntries();
-            foreach (Product product in allProducts)
-            {
-                session.FindElementByName(product.name);
-                session.FindElementByName(product.price.ToString());
-                session.FindElementByName(product.amount.ToString());
-            }
-        }
-
+        
         [Given(@"the product name is (.*)")]
         public void GivenTheProductNameIsTomate(string name)
         {
