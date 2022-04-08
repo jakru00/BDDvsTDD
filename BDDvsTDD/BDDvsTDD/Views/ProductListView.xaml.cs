@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,11 +38,19 @@ namespace BDDvsTDD
             var amount = addAmountInput.Text;
             if (name != "" && price != "" && amount != "")
             {
-                _model.addEntry(
-                    name,
-                    float.Parse(price),
-                    int.Parse(amount)
-                );
+                try
+                {
+                    _model.addEntry(
+                        name,
+                        float.Parse(price),
+                        int.Parse(amount)
+                    );
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Fehler! >:(", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 addNameInput.Clear();
                 addPriceInput.Clear();
                 addAmountInput.Clear();
