@@ -43,145 +43,40 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="53"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox VerticalAlignment="Center" Margin="5"></TextBox>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="5"></TextBox>
-                <TextBox Grid.Column="2" VerticalAlignment="Center" Margin="5"></TextBox>
+                <TextBox x:Name="addNameInput"  VerticalAlignment="Center" Margin="5"></TextBox>
+                <TextBox x:Name="addPriceInput" Grid.Column="1" VerticalAlignment="Center" Margin="5"></TextBox>
+                <TextBox x:Name="addAmountInput" Grid.Column="2" VerticalAlignment="Center" Margin="5"></TextBox>
 
                 <Border BorderBrush="Black" BorderThickness="1 1 0.5 1"></Border>
                 <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 1 0.5 1"></Border>
                 <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 1 1 1"></Border>
 
-                <Button Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="+"/>
+                <Button Grid.Column="3" x:Name="btn_3"  Content="+"/>
             </Grid>
 
-            <ScrollViewer Grid.Row="2" Margin="5">
+            <ScrollViewer Grid.Row="2" Margin="5" HorizontalScrollBarVisibility="disabled">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="53"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid x:Name="TestGrid">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
+                    <DataGrid Name="dgProducts" AutoGenerateColumns="False" HeadersVisibility="None" RowHeight="30" ColumnWidth="*" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <!--<DataGrid.Resources>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            </Style>
+                        </DataGrid.Resources>-->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" DisplayIndex="0"  Binding="{Binding name}" />
+                            <DataGridTextColumn Width="*" DisplayIndex="1" Binding="{Binding price}" />
+                            <DataGridTextColumn Width="*" DisplayIndex="2" Binding="{Binding amount}" />
 
-                        <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-                        <TextBlock Grid.Row="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Name</TextBlock>
-                        <TextBlock Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Anzahl</TextBlock>
-                        <TextBlock Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">Preis/Stück</TextBlock>
-
-
-                        <Border BorderBrush="Black" BorderThickness="1 1 0.5 0.5"></Border>
-                        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 1 0.5 0.5"></Border>
-                        <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 1 1 0.5"></Border>
-                        
-                        <Border Grid.Row="1" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="3" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="3" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="4" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="4" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="4" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="5" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="5" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="5" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="6" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="6" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="6" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="7" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="7" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="7" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="8" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5"></Border>
-                        <Border Grid.Row="8" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5"></Border>
-                        <Border Grid.Row="8" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5"></Border>
-
-                        <Border Grid.Row="9" BorderBrush="Black" BorderThickness="1 0.5 0.5 1"></Border>
-                        <Border Grid.Row="9" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 1"></Border>
-                        <Border Grid.Row="9" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 1"></Border>
-
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="30"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                        <Button Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
-                    </Grid>
+                            <DataGridTemplateColumn Width="51">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="X" x:Name="addProductButton"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </ScrollViewer>
 
