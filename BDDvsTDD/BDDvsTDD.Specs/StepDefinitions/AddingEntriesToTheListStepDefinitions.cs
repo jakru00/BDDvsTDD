@@ -83,7 +83,7 @@ namespace BDDvsTDD.Specs.StepDefinitions
             session.FindElementByAccessibilityId("addNameInput").SendKeys(nameMem);
             session.FindElementByAccessibilityId("addPriceInput").SendKeys(priceMem.ToString());
             session.FindElementByAccessibilityId("addAmountInput").SendKeys(amountMem.ToString());
-            session.FindElementByAccessibilityId("AddProductButton").Click();
+            session.FindElementByAccessibilityId("addProductButton").Click();
         }
 
         [Then(@"the entry shall be added to the existing entries with the given properties")]
