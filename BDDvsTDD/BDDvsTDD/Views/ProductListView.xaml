@@ -18,6 +18,7 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
@@ -35,7 +36,25 @@
                     <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 1 1 1"></Border>
             </Grid>
 
-            <ScrollViewer Grid.Row="1" Margin="5">
+            <Grid Grid.Row="1" Margin="5 10 22 5" Height="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="53"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox VerticalAlignment="Center" Margin="5"></TextBox>
+                <TextBox Grid.Column="1" VerticalAlignment="Center" Margin="5"></TextBox>
+                <TextBox Grid.Column="2" VerticalAlignment="Center" Margin="5"></TextBox>
+
+                <Border BorderBrush="Black" BorderThickness="1 1 0.5 1"></Border>
+                <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 1 0.5 1"></Border>
+                <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 1 1 1"></Border>
+
+                <Button Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="+"/>
+            </Grid>
+
+            <ScrollViewer Grid.Row="2" Margin="5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -140,22 +159,43 @@
                         <Border Grid.Row="9" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 1"></Border>
 
                     </Grid>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                        <Button Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Content="X"/>
+                    </Grid>
                 </Grid>
             </ScrollViewer>
 
-            <Border Grid.Row="2" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <Border Grid.Row="3" BorderBrush="Black" BorderThickness="1" Margin="5 5 75 5">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 5 10 5" FontWeight="Bold">Summe:</TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 5 15 5" FontWeight="Bold">Summe:</TextBlock>
                 </Grid>
             </Border>
         </Grid>
-
-        
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
