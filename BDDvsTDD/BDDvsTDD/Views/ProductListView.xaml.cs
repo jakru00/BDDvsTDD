@@ -20,34 +20,54 @@ namespace BDDvsTDD
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly ProductListModel _model;
         public MainWindow()
         {
             InitializeComponent();
 
-            Product product = new("Tomate", 1.5f, 2);
+            _model = new ProductListModel();
 
-            List<Product> products = new(0);
-            for (int i = 0; i < 10; i++)
+            updateEntries();
+        }
+
+        private void addProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            var name = addNameInput.Text;
+            var price = addPriceInput.Text;
+            var amount = addAmountInput.Text;
+            if (name != "" && price != "" && amount != "")
             {
-                products.Add(product);
+                _model.addEntry(
+                    name,
+                    float.Parse(price),
+                    int.Parse(amount)
+                );
+                addNameInput.Clear();
+                addPriceInput.Clear();
+                addAmountInput.Clear();
+
+                updateEntries();
             }
-
-            dgProducts.ItemsSource = products;
         }
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
+        private void deleteProductButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btn2_Click(object sender, RoutedEventArgs e)
+        private void exportImportButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void btn3_Click(object sender, RoutedEventArgs e)
+        private void exitButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void updateEntries()
+        {
+            dgProducts.ItemsSource = _model.getEntries();
         }
     }
 }
