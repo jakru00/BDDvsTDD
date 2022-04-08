@@ -8,6 +8,11 @@ namespace BDDvsTDD.Specs.StepDefinitions
     {
         protected static WindowsDriver<WindowsElement> session;
 
+        ProductListModel model = new ProductListModel();
+        string? nameMem;
+        int amountMem;
+        float priceMem;
+
         [BeforeTestRun]
         public static void SetupTest()
         {
@@ -20,10 +25,11 @@ namespace BDDvsTDD.Specs.StepDefinitions
             }
         }
 
-        ProductListModel model = new ProductListModel();
-        string nameMem;
-        int amountMem;
-        float priceMem;
+        [AfterTestRun]
+        public static void DisposeTest()
+        {
+            session?.Dispose();
+        }
 
         [Given(@"there is at least one entry")]
         public void GivenThereIsAtLeastOneEntry()
@@ -44,7 +50,13 @@ namespace BDDvsTDD.Specs.StepDefinitions
         [Then(@"all entries shall be displayed")]
         public void ThenAllEntriesShallBeDisplayed()
         {
-            throw new PendingStepException();
+            Product[] allProducts = model.getEntries();
+            foreach (Product product in allProducts)
+            {
+                session.FindElementByName(product.name);
+                session.FindElementByName(product.price.ToString());
+                session.FindElementByName(product.amount.ToString());
+            }
         }
 
         [Given(@"the product name is (.*)")]
@@ -68,13 +80,18 @@ namespace BDDvsTDD.Specs.StepDefinitions
         [When(@"the user adds the entry")]
         public void WhenTheUserPresses()
         {
-            throw new PendingStepException();
+            session.FindElementByAccessibilityId("addNameInput").SendKeys(nameMem);
+            session.FindElementByAccessibilityId("addPriceInput").SendKeys(priceMem.ToString());
+            session.FindElementByAccessibilityId("addAmountInput").SendKeys(amountMem.ToString());
+            session.FindElementByAccessibilityId("AddProductButton").Click();
         }
 
         [Then(@"the entry shall be added to the existing entries with the given properties")]
         public void ThenTheEntryShallBeAddedToTheExistingEntriesWithTheGivenProperties()
         {
-            throw new PendingStepException();
+            session.FindElementByName(nameMem);
+            session.FindElementByName(priceMem.ToString());
+            session.FindElementByName(amountMem.ToString());
         }
     }
 }

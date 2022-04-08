@@ -41,7 +41,7 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="53"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Grid>
+                    <Grid x:Name="TestGrid">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -164,10 +164,3 @@
             </Grid.ColumnDefinitions>
             <Button Content="Export/Import"
                     HorizontalAlignment="Left" Click="btn1_Click"
-                    VerticalAlignment="Center" Margin="5"/>
-            <Button Grid.Column="1" x:Name="btn2" Content="Beenden"
-                    HorizontalAlignment="Right" Click="btn2_Click"
-                    VerticalAlignment="Center" Margin="5"/>
-        </Grid>
-    </Grid>
-</Window>
