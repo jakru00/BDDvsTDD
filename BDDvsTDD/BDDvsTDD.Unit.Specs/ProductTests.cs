@@ -17,13 +17,13 @@ namespace BDDvsTDD.Unit.Specs
         [Fact]
         public void shouldNotAllowNegativeAmount() 
         {
-            Assert.Throws<NegativeAmountException>(() => new Product("Test", 5, -1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Product("Test", 5, -1));
         }
 
         [Fact]
         public void shouldNotAllowNegativePrice()
         {
-            Assert.Throws<NegativePriceException>(() => new Product("Test", -5, 1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Product("Test", -5, 1));
         }
 
 
