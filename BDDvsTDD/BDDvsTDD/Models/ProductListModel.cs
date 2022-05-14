@@ -8,34 +8,39 @@ namespace BDDvsTDD
 {
     public class ProductListModel
     {
-        public ProductListModel() { entries = new List<Product>(0); }
         private List<Product> entries;
-        public Product[] getEntries() { return entries.ToArray(); }
-        public void addEntry(string name, float price, int amount) 
+
+        public ProductListModel()
         {
-            foreach (Product product in entries)
-            {
-                if (product.name == name)
-                {
-                    return;
-                }
-            }
-            entries.Add(new Product(name, price, amount));
+            entries = new List<Product>(0);
         }
-        public void removeEntry(string name) {
+
+        public Product[] GetEntries()
+        {
+            return entries.ToArray();
+        }
+
+        public Product AddEntry(string name, float price, int amount)
+        {
+            var prod = new Product(name, price, amount);
+            entries.Add(prod);
+            return prod;
+        }
+
+        public void RemoveEntry(Guid uuid) {
             foreach (Product product in entries)
             {
-                if (product.name == name)
+                if (product.Uuid == uuid)
                 {
                     entries.Remove(product);
                     return;
                 }
             }
         }
-        public void editEntry(string name) { }
-        public Product getEntry(string name) 
+
+        public Product GetEntry(Guid uuid) 
         { 
-            return entries.FirstOrDefault(product => product.name == name);
+            return entries.FirstOrDefault(product => product.Uuid == uuid);
         }
     }
 }
