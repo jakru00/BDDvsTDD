@@ -32,7 +32,7 @@ namespace BDDvsTDD
             updateEntries();
         }
 
-        private void addProductButton_Click(object sender, RoutedEventArgs e)
+        private void onAddProductButton_Click(object sender, RoutedEventArgs e)
         {
             var name = addNameInput.Text;
             var price = addPriceInput.Text;
@@ -60,7 +60,7 @@ namespace BDDvsTDD
             }
         }
 
-        private void deleteProductButton_Click(object sender, RoutedEventArgs e)
+        private void onDeleteProductButton_Click(object sender, RoutedEventArgs e)
         {
             Product prod = ((FrameworkElement)sender).DataContext as Product;
 
@@ -73,12 +73,12 @@ namespace BDDvsTDD
             }
         }
 
-        private void exportImportButton_Click(object sender, RoutedEventArgs e)
+        private void onExportImportButton_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void exitButton_Click(object sender, RoutedEventArgs e)
+        private void onExitButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

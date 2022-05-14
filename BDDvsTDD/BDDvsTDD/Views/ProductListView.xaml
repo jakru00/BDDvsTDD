@@ -51,7 +51,7 @@
                 <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 1 0.5 1"></Border>
                 <Border Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 1 1 1"></Border>
 
-                <Button Grid.Column="3" x:Name="addProductButton" Click="addProductButton_Click" Content="+"/>
+                <Button Grid.Column="3" x:Name="addProductButton" Click="onAddProductButton_Click" Content="+"/>
             </Grid>
 
             <ScrollViewer Grid.Row="2" Margin="5" HorizontalScrollBarVisibility="disabled">
@@ -65,7 +65,7 @@
                             <DataGridTemplateColumn Width="51">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Content="X" x:Name="deleteProductButton" Click="deleteProductButton_Click"/>
+                                        <Button Content="X" x:Name="deleteProductButton" Click="onDeleteProductButton_Click"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -90,12 +90,13 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button x:Name="exportImportButton" Content="Export/Import"
-                    HorizontalAlignment="Left" Click="exportImportButton_Click"
+                    HorizontalAlignment="Left" Click="onExportImportButton_Click"
                     VerticalAlignment="Center" Margin="5"/>
             <Button Grid.Column="1" x:Name="exitButton" Content="Beenden"
-                    HorizontalAlignment="Right" Click="exitButton_Click"
+                    HorizontalAlignment="Right" Click="onExitButton_Click"
                     VerticalAlignment="Center" Margin="5"/>
         </Grid>
     </Grid>
