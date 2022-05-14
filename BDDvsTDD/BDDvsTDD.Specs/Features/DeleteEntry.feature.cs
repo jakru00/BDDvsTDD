@@ -19,7 +19,7 @@ namespace BDDvsTDD.Specs.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class AddingEntriesToTheListFeature : object, Xunit.IClassFixture<AddingEntriesToTheListFeature.FixtureData>, System.IDisposable
+    public partial class DeleteEntryFeature : object, Xunit.IClassFixture<DeleteEntryFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace BDDvsTDD.Specs.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "AddEntries.feature"
+#line 1 "DeleteEntry.feature"
 #line hidden
         
-        public AddingEntriesToTheListFeature(AddingEntriesToTheListFeature.FixtureData fixtureData, BDDvsTDD_Specs_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public DeleteEntryFeature(DeleteEntryFeature.FixtureData fixtureData, BDDvsTDD_Specs_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,8 +40,7 @@ namespace BDDvsTDD.Specs.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Adding Entries to the list", "As a customer\r\nI want to add new entries to the shopping list\r\nBy typing in name " +
-                    "and optionally amount and price\r\nSo that they all are displayed in the list", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "DeleteEntry", "A short summary of the feature", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -81,15 +80,15 @@ namespace BDDvsTDD.Specs.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add an entry")]
-        [Xunit.TraitAttribute("FeatureTitle", "Adding Entries to the list")]
-        [Xunit.TraitAttribute("Description", "Add an entry")]
-        public virtual void AddAnEntry()
+        [Xunit.SkippableFactAttribute(DisplayName="User Deletes an already exisiting Product from the list")]
+        [Xunit.TraitAttribute("FeatureTitle", "DeleteEntry")]
+        [Xunit.TraitAttribute("Description", "User Deletes an already exisiting Product from the list")]
+        public virtual void UserDeletesAnAlreadyExisitingProductFromTheList()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add an entry", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User Deletes an already exisiting Product from the list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -109,20 +108,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 6
+ testRunner.Given("there is at least one entry", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 7
+ testRunner.When("the user presses a delete button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
 #line 8
- testRunner.Given("the product name is Tomate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Then("a confirmation window should appear", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 9
- testRunner.And("the amount is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("the user confirms", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.And("the price is 1,5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.When("the user adds the entry", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 12
- testRunner.Then("the entry shall be added to the existing entries with the given properties", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the Product will be deleted from the list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -135,12 +134,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                AddingEntriesToTheListFeature.FeatureSetup();
+                DeleteEntryFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                AddingEntriesToTheListFeature.FeatureTearDown();
+                DeleteEntryFeature.FeatureTearDown();
             }
         }
     }

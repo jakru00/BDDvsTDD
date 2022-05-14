@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -61,7 +62,15 @@ namespace BDDvsTDD
 
         private void deleteProductButton_Click(object sender, RoutedEventArgs e)
         {
+            Product prod = ((FrameworkElement)sender).DataContext as Product;
 
+            MessageBoxResult result = MessageBox.Show("Wirklich löschen?", "Löschen bestätigen", MessageBoxButton.OKCancel,
+                MessageBoxImage.Question);
+            if (result == MessageBoxResult.OK)
+            {
+                _model.removeEntry(prod.name);
+                updateEntries();
+            }
         }
 
         private void exportImportButton_Click(object sender, RoutedEventArgs e)

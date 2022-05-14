@@ -22,7 +22,16 @@ namespace BDDvsTDD
             }
             entries.Add(new Product(name, price, amount));
         }
-        public void removeEntry(string name) { }
+        public void removeEntry(string name) {
+            foreach (Product product in entries)
+            {
+                if (product.name == name)
+                {
+                    entries.Remove(product);
+                    return;
+                }
+            }
+        }
         public void editEntry(string name) { }
         public Product getEntry(string name) 
         { 
