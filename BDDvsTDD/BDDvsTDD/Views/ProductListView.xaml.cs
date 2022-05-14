@@ -81,7 +81,7 @@ namespace BDDvsTDD
 
         private void onExitButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void updateEntries()
