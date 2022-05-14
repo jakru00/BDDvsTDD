@@ -8,25 +8,30 @@ namespace BDDvsTDD
 {
     public class Product
     {
-        public float price { get; set; }
-        public string name { get; set; }
-        public int amount { get; set; }
+        public Guid Uuid { get; set; }
+        public float Price { get; set; }
+        public string Name { get; set; }
+        public int Amount { get; set; }
 
         public Product(string name, float price, int amount)
         {
             if (name.Trim().Length == 0)
             {
                 throw new EmptyNameException();
-            } else if (price < 0)
+            } 
+            if (price < 0)
             {
                 throw new ArgumentOutOfRangeException("Price is below 0");
-            } else if (amount < 0)
+            }
+            if (amount < 0)
             {
                 throw new ArgumentOutOfRangeException("Amount is below 0");
             }
-            this.price = price;
-            this.name = name;
-            this.amount = amount;
+
+            Uuid = Guid.NewGuid();
+            Price = price;
+            Name = name;
+            Amount = amount;
         }
     }
 }

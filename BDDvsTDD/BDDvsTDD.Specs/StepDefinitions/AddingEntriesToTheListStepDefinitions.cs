@@ -32,19 +32,19 @@ namespace BDDvsTDD.Specs.StepDefinitions
         }
 
         
-        [Given(@"the product name is (.*)")]
+        [Given(@"the product Name is (.*)")]
         public void GivenTheProductNameIsTomate(string name)
         {
             nameMem = name;
         }
 
-        [Given(@"the amount is (.*)")]
+        [Given(@"the Amount is (.*)")]
         public void GivenTheAmountIs(int amount)
         {
             amountMem = amount;
         }
 
-        [Given(@"the price is (.*)")]
+        [Given(@"the Price is (.*)")]
         public void GivenThePriceIs(float price)
         {
             priceMem = price;

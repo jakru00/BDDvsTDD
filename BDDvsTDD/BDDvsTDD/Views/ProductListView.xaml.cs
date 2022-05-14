@@ -37,11 +37,12 @@ namespace BDDvsTDD
             var name = addNameInput.Text;
             var price = addPriceInput.Text;
             var amount = addAmountInput.Text;
+
             if (name != "" && price != "" && amount != "")
             {
                 try
                 {
-                    _model.addEntry(
+                    _model.AddEntry(
                         name,
                         float.Parse(price),
                         int.Parse(amount)
@@ -68,7 +69,7 @@ namespace BDDvsTDD
                 MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
-                _model.removeEntry(prod.name);
+                _model.RemoveEntry(prod.Uuid);
                 updateEntries();
             }
         }
@@ -85,7 +86,7 @@ namespace BDDvsTDD
 
         private void updateEntries()
         {
-            dgProducts.ItemsSource = _model.getEntries();
+            dgProducts.ItemsSource = _model.GetEntries();
         }
     }
 }

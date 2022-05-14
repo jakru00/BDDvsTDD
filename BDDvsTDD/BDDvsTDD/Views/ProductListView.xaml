@@ -58,9 +58,9 @@
                 <Grid>
                     <DataGrid x:Name="dgProducts" AutoGenerateColumns="False" HeadersVisibility="None" RowHeight="30" ColumnWidth="*" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="*" DisplayIndex="0"  Binding="{Binding name}" />
-                            <DataGridTextColumn Width="*" DisplayIndex="1" Binding="{Binding price}" />
-                            <DataGridTextColumn Width="*" DisplayIndex="2" Binding="{Binding amount}" />
+                            <DataGridTextColumn Width="*" DisplayIndex="0"  Binding="{Binding Name}" />
+                            <DataGridTextColumn Width="*" DisplayIndex="1" Binding="{Binding Price}" />
+                            <DataGridTextColumn Width="*" DisplayIndex="2" Binding="{Binding Amount}" />
 
                             <DataGridTemplateColumn Width="51">
                                 <DataGridTemplateColumn.CellTemplate>
