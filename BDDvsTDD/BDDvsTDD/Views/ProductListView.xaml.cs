@@ -49,7 +49,7 @@ namespace BDDvsTDD
                 }
                 catch (Exception exc)
                 {
-                    MessageBox.Show("Fehler! >:(", "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(exc.Message, "Alert", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
                 addNameInput.Clear();

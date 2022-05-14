@@ -19,10 +19,10 @@ namespace BDDvsTDD
                 throw new EmptyNameException();
             } else if (price < 0)
             {
-                throw new NegativePriceException();
+                throw new ArgumentOutOfRangeException("Price is below 0");
             } else if (amount < 0)
             {
-                throw new NegativeAmountException();
+                throw new ArgumentOutOfRangeException("Amount is below 0");
             }
             this.price = price;
             this.name = name;
