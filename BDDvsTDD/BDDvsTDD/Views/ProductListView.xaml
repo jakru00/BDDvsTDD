@@ -56,7 +56,7 @@
 
             <ScrollViewer Grid.Row="2" Margin="5" HorizontalScrollBarVisibility="disabled">
                 <Grid>
-                    <DataGrid Name="dgProducts" AutoGenerateColumns="False" HeadersVisibility="None" RowHeight="30" ColumnWidth="*" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <DataGrid x:Name="dgProducts" AutoGenerateColumns="False" HeadersVisibility="None" RowHeight="30" ColumnWidth="*" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="*" DisplayIndex="0"  Binding="{Binding name}" />
                             <DataGridTextColumn Width="*" DisplayIndex="1" Binding="{Binding price}" />
