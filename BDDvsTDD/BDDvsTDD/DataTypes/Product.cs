@@ -11,9 +11,9 @@ namespace BDDvsTDD
         public Guid Uuid { get; set; }
         public float Price { get; set; }
         public string Name { get; set; }
-        public int Amount { get; set; }
+        public float Amount { get; set; }
 
-        public Product(string name, float price, int amount)
+        public Product(string name, float price, float amount)
         {
             if (name.Trim().Length == 0)
             {
