@@ -9,9 +9,9 @@ namespace BDDvsTDD.Unit.Specs
         public void shouldConstructProduct()
         {
             Product testProd = new("Tomate", 1.5f, 3);
-            Assert.Equal(testProd.name, "Tomate");
-            Assert.Equal(testProd.price, 1.5);
-            Assert.Equal(testProd.amount, 3);
+            Assert.Equal(testProd.Name, "Tomate");
+            Assert.Equal(testProd.Price, 1.5);
+            Assert.Equal(testProd.Amount, 3);
         }
 
         [Fact]

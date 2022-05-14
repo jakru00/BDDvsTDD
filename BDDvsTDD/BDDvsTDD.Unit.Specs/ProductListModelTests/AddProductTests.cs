@@ -21,12 +21,12 @@ namespace BDDvsTDD.Unit.Specs.ProductListModelTests
         }
 
         [Fact]
-        public void ShouldNotAllowDuplicateProductNames()
+        public void ShouldAllowDuplicateProductNames()
         {
             int listLengthBefore = _listObject.GetEntries().Length;
             _listObject.AddEntry("Test1", 1, 1);
             _listObject.AddEntry("Test1", 1, 1);
-            Assert.Equal(listLengthBefore + 1, _listObject.GetEntries().Length);
+            Assert.Equal(listLengthBefore + 2, _listObject.GetEntries().Length);
         }
     }
 }
