@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -45,7 +46,7 @@ namespace BDDvsTDD
                     _model.AddEntry(
                         name,
                         float.Parse(price),
-                        int.Parse(amount)
+                        float.Parse(amount)
                     );
                 }
                 catch (Exception exc)
@@ -74,11 +75,6 @@ namespace BDDvsTDD
             }
         }
 
-        private void onExportImportButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void onExitButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -87,6 +83,11 @@ namespace BDDvsTDD
         private void updateEntries()
         {
             dgProducts.ItemsSource = _model.GetEntries();
+        }
+
+        private void onWindowClosing(object sender, CancelEventArgs e)
+        {
+            _model.ExportToCsv();
         }
     }
 }

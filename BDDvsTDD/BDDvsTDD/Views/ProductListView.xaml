@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BDDvsTDD"
         mc:Ignorable="d"
-        Title="Einkaufsliste" Height="450" Width="800">
+        Title="Einkaufsliste" Height="450" Width="800"
+        Closing="onWindowClosing">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -90,11 +91,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="exportImportButton" Content="Export/Import"
-                    HorizontalAlignment="Left" Click="onExportImportButton_Click"
-                    VerticalAlignment="Center" Margin="5"/>
             <Button Grid.Column="1" x:Name="exitButton" Content="Beenden"
                     HorizontalAlignment="Right" Click="onExitButton_Click"
                     VerticalAlignment="Center" Margin="5"/>
