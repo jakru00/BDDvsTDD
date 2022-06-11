@@ -6,11 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace BDDvsTDD
 {
     public class ProductListModel
     {
         private List<Product> entries;
+
+        private const string persistentStoragePath = "./PersitantStorage.csv";
 
         public ProductListModel()
         {
@@ -49,23 +53,27 @@ namespace BDDvsTDD
         public void ExportToCsv()
         {
             string csv = String.Join("\n", entries.Select(x => String.Join(',', new string[] { x.Name, x.Price.ToString(), x.Amount.ToString() })));
-            File.WriteAllText("./PersitantStorage.csv", csv);
+            File.WriteAllText(persistentStoragePath, csv);
         }
 
         public void ImportCsv()
         {
-            using (var reader = new StreamReader("./PersitantStorage.csv"))
+            if (File.Exists(persistentStoragePath))
             {
-                while (!reader.EndOfStream)
+                using (var reader = new StreamReader(persistentStoragePath))
                 {
-                    string[] line = reader.ReadLine().Split(',');
-                        string name = line[0];
-                    try
+                    while (!reader.EndOfStream)
                     {
-                        float price = float.Parse(line[1]);
-                        float amount = float.Parse(line[2]);
-                        AddEntry(name, price, amount);
-                    } catch { } 
+                        string[] line = reader.ReadLine().Split(',');
+                        string name = line[0];
+                        try
+                        {
+                            float price = float.Parse(line[1]);
+                            float amount = float.Parse(line[2]);
+                            AddEntry(name, price, amount);
+                        }
+                        catch { }
+                    }
                 }
             }
         }
