@@ -93,7 +93,7 @@ namespace BDDvsTDD
             _totalSum = 0;
             foreach (var entry in _model.GetEntries())
             {
-                _totalSum += entry.Price;
+                _totalSum += entry.Price * entry.Amount;
             }
 
             totalSum.Text = _totalSum.ToString();
