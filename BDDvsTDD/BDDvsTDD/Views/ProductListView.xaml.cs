@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace BDDvsTDD
 {
@@ -23,13 +25,17 @@ namespace BDDvsTDD
     public partial class MainWindow : Window
     {
         private readonly ProductListModel _model;
+        private float _totalSum;
+
         public MainWindow()
         {
+            DataContext = this;
+
             InitializeComponent();
 
             _model = new ProductListModel();
 
-            updateEntries();
+            UpdateUi();
         }
 
         private void onAddProductButton_Click(object sender, RoutedEventArgs e)
@@ -57,7 +63,7 @@ namespace BDDvsTDD
                 addPriceInput.Clear();
                 addAmountInput.Clear();
 
-                updateEntries();
+                UpdateUi();
             }
         }
 
@@ -70,7 +76,7 @@ namespace BDDvsTDD
             if (result == MessageBoxResult.OK)
             {
                 _model.RemoveEntry(prod.Uuid);
-                updateEntries();
+                UpdateUi();
             }
         }
 
@@ -84,9 +90,17 @@ namespace BDDvsTDD
             Application.Current.Shutdown();
         }
 
-        private void updateEntries()
+        private void UpdateUi()
         {
             dgProducts.ItemsSource = _model.GetEntries();
+
+            _totalSum = 0;
+            foreach (var entry in _model.GetEntries())
+            {
+                _totalSum += entry.Price;
+            }
+
+            totalSum.Text = _totalSum.ToString();
         }
     }
 }
